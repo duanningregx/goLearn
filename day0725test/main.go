@@ -55,4 +55,9 @@ func main() {
 	data[0] = "a"
 	data[1] = "b"
 	existsKeys(data)
+
+	for key, value := range data {
+		fmt.Println(key)
+		fmt.Println(value)
+	}
 }
