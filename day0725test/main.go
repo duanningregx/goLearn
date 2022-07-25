@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"runtime"
+	"strconv"
 )
 
 func testListSize() {
@@ -33,13 +35,24 @@ func listPara(arr []int) {
 	arr[len(arr)-1]++
 }
 
+func existsKeys(data map[int]string) {
+	if value, exists := data[0]; exists {
+		fmt.Println(value)
+	}
+}
+
 func main() {
-	//fmt.Println("cpu is" + runtime.GOARCH)
-	//fmt.Println(strconv.IntSize)
-	//testListSize()
-	//testListSlice()
+	fmt.Println("cpu is" + runtime.GOARCH)
+	fmt.Println(strconv.IntSize)
+	testListSize()
+	testListSlice()
 
 	var a = []int{1, 2, 3, 4, 5}
 	listPara(a)
 	fmt.Println(a)
+
+	var data = make(map[int]string, 10)
+	data[0] = "a"
+	data[1] = "b"
+	existsKeys(data)
 }
