@@ -42,6 +42,12 @@ func (u *User) setNamePointer(name string) {
 	u.name = name
 }
 
+// 继承
+type student struct {
+	User
+	score float64
+}
+
 func main() {
 	var data = []int{1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6}
 	rel := distinct(data)
@@ -54,5 +60,10 @@ func main() {
 	fmt.Println(chen.name)
 	chen.setNamePointer("duan")
 	fmt.Println(chen.name)
+
+	var st = student{score: 99}
+	st.id = 2
+	st.age = time.Now()
+	fmt.Println(st)
 
 }
