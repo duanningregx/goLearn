@@ -33,6 +33,15 @@ func (u User) sayHello() {
 	fmt.Println("hello,my name is " + u.name)
 }
 
+// 方法接受者传指针和struct的不同
+func (u User) setName(name string) {
+	u.name = name
+}
+
+func (u *User) setNamePointer(name string) {
+	u.name = name
+}
+
 func main() {
 	var data = []int{1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6}
 	rel := distinct(data)
@@ -40,4 +49,10 @@ func main() {
 
 	var chen = User{1, "chen", "sx", time.Now()}
 	fmt.Println(chen)
+
+	chen.setName("duan")
+	fmt.Println(chen.name)
+	chen.setNamePointer("duan")
+	fmt.Println(chen.name)
+
 }
