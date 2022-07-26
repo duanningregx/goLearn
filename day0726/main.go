@@ -48,6 +48,22 @@ type student struct {
 	score float64
 }
 
+func switchType(data interface{}) {
+	switch data.(type) {
+	case int:
+		rel := data.(int)
+		fmt.Println(rel)
+	case float32:
+		rel := data.(float32)
+		fmt.Println(rel)
+	case string:
+		rel := data.(string)
+		fmt.Println(rel)
+	default:
+		fmt.Println("not support type")
+	}
+}
+
 func main() {
 	var data = []int{1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6}
 	rel := distinct(data)
@@ -65,5 +81,8 @@ func main() {
 	st.id = 2
 	st.age = time.Now()
 	fmt.Println(st)
+
+	var typeData = 10
+	switchType(typeData)
 
 }
