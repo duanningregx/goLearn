@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"time"
 )
 
@@ -79,6 +80,10 @@ func panicRecover() {
 	defer func() {
 		if r := recover(); r != nil {
 			fmt.Printf("panic recovered %s\n", r)
+			var buf = make([]byte, 1024)
+			count := runtime.Stack(buf, false)
+			buf = buf[:count] // count 表示实际的字数
+			fmt.Printf(string(buf))
 		}
 	}()
 	panic(fmt.Errorf("panic"))
