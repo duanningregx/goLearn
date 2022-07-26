@@ -117,4 +117,5 @@ func main() {
 	// TODO: learn 闭包
 
 	panicRecover()
+	testInterface()
 }
