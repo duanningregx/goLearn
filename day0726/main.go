@@ -75,6 +75,15 @@ func add(x, y int) int {
 	return x + y
 }
 
+func panicRecover() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("panic recovered %s\n", r)
+		}
+	}()
+	panic(fmt.Errorf("panic"))
+}
+
 func main() {
 	var data = []int{1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6}
 	rel := distinct(data)
@@ -100,4 +109,7 @@ func main() {
 	z := processData(x, y, add)
 	fmt.Println(z)
 
+	// TODO: learn 闭包
+
+	panicRecover()
 }
