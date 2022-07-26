@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func distinct(data []int) []int {
 	var dataMap = make(map[int]int)
@@ -19,8 +22,22 @@ func distinct(data []int) []int {
 	return rel
 }
 
+type User struct {
+	id      int
+	name    string
+	address string
+	age     time.Time
+}
+
+func (u User) sayHello() {
+	fmt.Println("hello,my name is " + u.name)
+}
+
 func main() {
 	var data = []int{1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6}
 	rel := distinct(data)
 	fmt.Println(rel)
+
+	var chen = User{1, "chen", "sx", time.Now()}
+	fmt.Println(chen)
 }
