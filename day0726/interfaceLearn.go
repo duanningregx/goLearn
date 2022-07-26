@@ -58,7 +58,7 @@ func printChen(ifc human) {
 func testInterface() {
 	var chen = chen{"chen"}
 	printChen(chen)
-
+	printCat(chen)
 	var cat = cat{"sixi"}
 	printCat(cat)
 }
