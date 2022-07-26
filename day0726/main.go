@@ -64,6 +64,17 @@ func switchType(data interface{}) {
 	}
 }
 
+// CallBack 钩子函数
+type CallBack func(x, y int) int
+
+func processData(x, y int, f CallBack) int {
+	return f(x, y)
+}
+
+func add(x, y int) int {
+	return x + y
+}
+
 func main() {
 	var data = []int{1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6}
 	rel := distinct(data)
@@ -84,5 +95,9 @@ func main() {
 
 	var typeData = 10
 	switchType(typeData)
+
+	var x, y = 1, 2
+	z := processData(x, y, add)
+	fmt.Println(z)
 
 }
