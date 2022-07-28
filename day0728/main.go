@@ -52,4 +52,7 @@ func main() {
 	// go语言并发编程模型？ MPG ?
 
 	lockTest()
+
+	// io 多路复用 select channel
+	selectTest()
 }
